@@ -1,16 +1,26 @@
 import React from 'react'
-//import Home from './pages/home'
-//import Login from './pages/auth/login'
+import { BrowserRouter, Route } from 'react-router-dom'
+
+import Home from './pages/home/home'
+import Login from './pages/auth/login'
 import Header from './components/shared/header'
 import Register from './pages/auth/register'
+import FooterNavigation from './components/shared/footerNav'
 
 function App() {
 
   return (
-  <>
-    <Header />
-    <Register />
-  </>
+    <BrowserRouter>
+      <Header />
+
+      <Route path="/login" component={Login} />
+      <Route path="/register" component={Register} />
+
+      <Route path="/" exact component={Home} />
+      
+      <p>Cargando...</p>
+      <FooterNavigation />
+    </BrowserRouter>
   )
 }
 

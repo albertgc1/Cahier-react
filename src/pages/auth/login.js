@@ -1,5 +1,7 @@
 import React from 'react'
 
+import { Link } from 'react-router-dom'
+
 import { Container, Typography, Grid, TextField, Button } from '@material-ui/core'
 
 import LockOpenIcon from '@material-ui/icons/LockOpen'
@@ -49,7 +51,7 @@ const Login = () => {
                     </Grid>
                 </form>
 
-                <p>¿Aún no tienes cuenta? crea uno aquí</p>
+                <p>¿Aún no tienes cuenta? crea uno <Link to='register'>aquí</Link></p>
 
                 <p style={{marginTop: 0}}>O puedes:</p>
 

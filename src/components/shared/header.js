@@ -1,5 +1,7 @@
 import React from 'react'
 
+import { Link } from 'react-router-dom'
+
 import { makeStyles } from '@material-ui/core/styles'
 import AppBar from '@material-ui/core/AppBar'
 import Toolbar from '@material-ui/core/Toolbar'
@@ -11,6 +13,7 @@ import MenuIcon from '@material-ui/icons/Menu'
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
+    marginBottom: 10
   },
   menuButton: {
     marginRight: theme.spacing(2),
@@ -18,6 +21,10 @@ const useStyles = makeStyles((theme) => ({
   title: {
     flexGrow: 1,
   },
+  link: {
+    textDecoration: 'none',
+    color: 'white'
+  }
 }))
 
 const Header = () => {
@@ -32,9 +39,11 @@ const Header = () => {
                         <MenuIcon />
                     </IconButton>
                     <Typography variant="h6" className={classes.title}>
-                        Cashier
+                      <Link to='/' className={classes.link}>Cashier</Link>
                     </Typography>
-                    <Button color="inherit">Login</Button>
+                    <Button color="inherit">
+                      <Link to='login' className={classes.link}>Login</Link>
+                    </Button>
                 </Toolbar>
             </AppBar>
         </div>
