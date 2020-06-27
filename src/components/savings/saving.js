@@ -11,6 +11,7 @@ import IconButton from '@material-ui/core/IconButton';
 import ArrowDownwardIcon from '@material-ui/icons/ArrowDownward';
 //import ArrowUpwardIcon from '@material-ui/icons/ArrowUpward';
 import TimelineIcon from '@material-ui/icons/Timeline';
+import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles({
     root: {
@@ -49,7 +50,7 @@ const useStyles = makeStyles({
     }
   });
 
-const Savings = () => {
+const Saving = () => {
 
   const classes = useStyles()
 
@@ -75,10 +76,12 @@ const Savings = () => {
         <span className={classes.data}>
           <ArrowDownwardIcon /> 56 $
         </span>
-        <Button size="small" color="primary">Ver Detalles</Button>
+        <Button size="small" color="primary">
+          <Link to={`saving/${1235}`} >Ver Detalles</Link>
+        </Button>
       </CardActions>
     </Card>
   )
 }
 
-export default Savings
+export default Saving

@@ -1,5 +1,5 @@
 import React from 'react'
-import Savings from './savings'
+import Saving from './saving'
 
 import Button from '@material-ui/core/Button'
 
@@ -43,8 +43,8 @@ const Index = () => {
             </div>
         </div>
         {
-            [0,1,2].map(box => (
-                <Savings />
+            [0,1,2,3].map(i => (
+                <Saving key={i} />
             ))
         }
     </>
