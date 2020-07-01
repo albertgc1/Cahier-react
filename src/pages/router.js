@@ -9,6 +9,7 @@ import Register from '../pages/auth/register'
 import Home from '../pages/home/home'
 import Detail from '../components/savings/detail'
 import AuxHeader from '../components/shared/auxHeader'
+import Profile from './profile/profile'
 
 const Router = () => {
 
@@ -26,6 +27,8 @@ const Router = () => {
         
             <Route path="/" exact component={ Home } />
             <Route path="/saving/:id" component={ Detail } />
+
+            <Route path="/profile" component={ Profile } />
             
             { !title &&
                 <><div style={{ height: 50 }}></div>
