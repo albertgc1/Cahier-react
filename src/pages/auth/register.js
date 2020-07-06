@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 import { Container, Typography, Grid, TextField, Button } from '@material-ui/core'
 
@@ -19,6 +19,15 @@ const styles = {
 
 const Register = () => {
 
+    const [ name, setName ] = useState('Albert')
+    const [ email, setEmail ] = useState('albert@gmail.com')
+    const [ password, setPassword ] = useState('asdasd')
+
+    const register = () => {
+        let data = { name, email, password }
+        console.log(data)
+    }
+
     return (
         <Container maxWidth="xs">
 
@@ -33,13 +42,16 @@ const Register = () => {
                 <form style={styles.form}>
                     <Grid container spacing={2}>
                         <Grid item md={6} xs={12}>
-                            <TextField label="Nombres" name="names" fullWidth />
+                            <TextField label="Nombres" name="names" fullWidth
+                                onChange={e => setName(e.target.value)} value={name} />
                         </Grid>
                         <Grid item md={6} xs={12}>
-                            <TextField label="Correo electrónico" name="email" fullWidth />
+                            <TextField label="Correo electrónico" name="email" fullWidth
+                                onChange={e => setEmail(e.target.value)} value={email} />
                         </Grid>
                         <Grid item md={6} xs={12}>
-                            <TextField label="Contraseña" name="password" fullWidth />
+                            <TextField label="Contraseña" name="password" fullWidth
+                                onChange={e => setPassword(e.target.value)} value={password} />
                         </Grid>
                         <Grid item md={6} xs={12}>
                             <TextField label="Confirmar Contraseña" name="confirmPassword" fullWidth />
@@ -47,7 +59,7 @@ const Register = () => {
                     </Grid>
                     <Grid container justify="flex-end" style={{marginTop: 20}}>
                         <Grid item md={12} xs={4}>
-                            <Button variant="contained" color="primary" fullWidth > Registrar </Button>
+                            <Button variant="contained" color="primary" fullWidth onClick={register} > Registrar </Button>
                         </Grid>
                     </Grid>
                 </form>

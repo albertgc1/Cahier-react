@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 import { Link } from 'react-router-dom'
 
@@ -24,6 +24,14 @@ const styles = {
 
 const Login = () => {
 
+    const [ email, setEmail ] = useState('albert@gmail.com')
+    const [ password, setPassword ] = useState('asdasd')
+
+    const login = () => {
+        let data = { email, password }
+        console.log(data)
+    }
+
     return (
         <Container maxWidth="xs">
 
@@ -38,15 +46,17 @@ const Login = () => {
                 <form style={styles.form}>
                     <Grid container spacing={2}>
                         <Grid item md={6} xs={12}>
-                            <TextField label="Correo electrónico" name="email" fullWidth />
+                            <TextField type="email" label="Correo electrónico" name="email" fullWidth 
+                                onChange={e => setEmail(e.target.value)} value={email} />
                         </Grid>
                         <Grid item md={6} xs={12}>
-                            <TextField label="Contraseña" name="password" fullWidth />
+                            <TextField type="password" label="Contraseña" name="password" fullWidth 
+                                onChange={e => setPassword(e.target.value)} value={password} />
                         </Grid>
                     </Grid>
                     <Grid container justify="flex-end" style={{marginTop: 20}}>
                         <Grid item md={12} xs={4}>
-                            <Button variant="contained" color="primary" fullWidth > Entrar </Button>
+                            <Button variant="contained" color="primary" fullWidth onClick={login} > Entrar </Button>
                         </Grid>
                     </Grid>
                 </form>
