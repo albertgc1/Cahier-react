@@ -50,7 +50,7 @@ const useStyles = makeStyles({
     }
   });
 
-const Saving = () => {
+const Saving = ({ box }) => {
 
   const classes = useStyles()
 
@@ -59,17 +59,17 @@ const Saving = () => {
       <CardContent>
         <div className={classes.header}>
           <Typography variant="h4" component="h2">
-            280 $
+            { box.amount } $
           </Typography>
           <IconButton color="secondary" aria-label="Graficar">
             <TimelineIcon />
           </IconButton>
         </div>
         <Typography variant="h5" component="h2">
-          Inversiones <span className={classes.pctg}>10%</span>
+          { box.name } <span className={classes.pctg}>{ box.porcentage }%</span>
         </Typography>
         <Typography variant="body2" component="p">
-          well meaning and kindly. This saving in only to inveert
+          { box.description }
         </Typography>
       </CardContent>
       <CardActions className={classes.actions}>
@@ -77,7 +77,7 @@ const Saving = () => {
           <ArrowDownwardIcon /> 56 $
         </span>
         <Button size="small" color="primary">
-          <Link to={`saving/${1235}`} >Ver Detalles</Link>
+          <Link to={`saving/${box.id}`} >Ver Detalles</Link>
         </Button>
       </CardActions>
     </Card>

@@ -56,6 +56,14 @@ TabPanel.propTypes = {
     },
 }));
 
+const box = {
+  id: 1,
+  name: 'Inversiones',
+  description: 'Esto se gasta solo en inversiones',
+  porcentage: 10,
+  amount: 200
+}
+
 const Detail = () => {
 
     const classes = useStyles();
@@ -78,7 +86,7 @@ const Detail = () => {
 
     return (
     <>
-        <Saving />
+        <Saving box={box}/>
         <div className={classes.root}>
             <AppBar position="static" color="default">
                 <Tabs

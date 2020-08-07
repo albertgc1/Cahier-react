@@ -1,5 +1,6 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import Saving from './saving'
+import { data } from '../../data'
 
 import Button from '@material-ui/core/Button'
 
@@ -32,10 +33,26 @@ const styles = {
 
 const Index = () => {
 
+    const [ total, setTotal ] = useState(0)
+    const [ boxes, setBoxes ] = useState([])
+
+    useEffect(async() => {
+        await setBoxes(data)
+        sum()
+    }, [])
+
+    const sum = () => {
+        let aux = 0
+        data.map(box => {
+            aux += box.amount
+            setTotal(aux)
+        })
+    }
+
     return (
     <>
         <div style={styles.container}>
-            <h2 style={styles.h2}>Total 2500 $</h2>
+            <h2 style={styles.h2}>Total { total } $</h2>
             <div style={styles.actions}>
                 <Button size="small" variant="outlined" color="primary" startIcon={<AddIcon />}>Nueva Caja</Button>
                 <Button size="small" variant="outlined" color="secondary" startIcon={<TimelineIcon />}>Graficar</Button>
@@ -43,8 +60,8 @@ const Index = () => {
             </div>
         </div>
         {
-            [0,1,2,3].map(i => (
-                <Saving key={i} />
+            boxes.map(box => (
+                <Saving key={box.id} box={box} />
             ))
         }
     </>
